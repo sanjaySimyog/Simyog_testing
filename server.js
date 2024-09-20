@@ -8,10 +8,6 @@ const axios = require('axios');  // For persistent node communication
 const app = express();  
 const port = 3000;  
 
-// Serve dashboard.html at the root URL
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/dashboard.html');
-});
 
 const BUCKET_NAME = 'simyog-testing'; // Add your S3 bucket name here
 
@@ -22,7 +18,14 @@ const AWS = require('aws-sdk');
 
 // Enable file upload middleware  
 app.use(fileUpload());  
- 
+
+app.use(express.static(path.join(__dirname, 'public'))); // Assuming 'public' is where your static files are located
+
+// Serve dashboard.html at root
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'dashboard.html')); // Adjust path if needed
+});
+
 AWS.config.update({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
