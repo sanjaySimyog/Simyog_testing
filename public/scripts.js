@@ -9,7 +9,7 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
   formData.append('projectFile', projectFile);
 
   try {
-    let response = await fetch('http://localhost:3000/upload', {
+    let response = await fetch('http://34.239.136.21:3000/upload', {
       method: 'POST',
       body: formData
     });
@@ -29,7 +29,7 @@ document.getElementById('uploadForm').addEventListener('submit', async function 
 // Update fetchProjects to add download button for completed projects
 async function fetchProjects() {
   try {
-    let response = await fetch('http://localhost:3000/projects');
+    let response = await fetch('http://34.239.136.21:3000/projects');
     let projects = await response.json();
 
     let tableBody = document.getElementById('projectTableBody');
@@ -85,7 +85,7 @@ async function fetchProjects() {
 // Function to download the output file
 async function downloadOutputFile(projectName) {
   try {
-    let response = await fetch(`http://localhost:3000/project/${projectName}/download`);
+    let response = await fetch(`http://34.239.136.21:3000/project/${projectName}/download`);
     let blob = await response.blob();
     let url = window.URL.createObjectURL(blob);
     let a = document.createElement('a');
@@ -102,7 +102,7 @@ async function downloadOutputFile(projectName) {
 
 async function manageProject(projectName, action) {
   try {
-    let response = await fetch(`http://localhost:3000/project/${projectName}/${action}`, {
+    let response = await fetch(`http://34.239.136.21:3000/project/${projectName}/${action}`, {
       method: 'POST'
     });
 
