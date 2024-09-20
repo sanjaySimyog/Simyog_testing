@@ -50,8 +50,8 @@ function analyzeProjectFile(projectFile) {
   // Analyze the file to determine requirements (e.g., parse metadata or content)
   // Here we simulate it with static values for demonstration
   const estimatedRequirements = {
-    vCPUs: 2,  // Estimate based on the analysis
-    memoryGB: 4 // Estimate based on the analysis
+    vCPUs: 1,  // Estimate based on the analysis
+    memoryGB: 1 // Estimate based on the analysis
   };
   
   return estimatedRequirements;
