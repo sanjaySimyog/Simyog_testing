@@ -194,7 +194,7 @@ async function startEC2Instance(project) {
           sudo aws s3 cp /home/ec2-user/output.txt s3://${BUCKET_NAME}/${s3FolderUrl}/output.txt
 
           # Notify server about completion
-          curl -X POST http://localhost:3000/project/${project.name}/complete
+          curl -X POST http://34.239.136.21:3000/project/${project.name}/complete
       `).toString('base64')      
     };
 
